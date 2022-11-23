@@ -1,3 +1,5 @@
+import Categories from "../Pages/Categories/Categories";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layouts/Main");
 const { default: Blogs } = require("../Pages/Blogs/Blogs");
@@ -22,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+
+            {
+                path: '/categories',
+                element: <Categories></Categories>
             },
 
         ]
