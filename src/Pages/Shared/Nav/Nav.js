@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assest/logo.PNG'
+import { authContext } from '../../../Context/AuthProvider';
 
 const Nav = () => {
+
+    //use context
+    const { user, logout } = useContext(authContext)
+
+    //handle logout
+    const handleLogout = () => {
+
+        //using logout
+        logout()
+            .then(res => {
+
+            })
+    }
+
     return (
         <div className="navbar bg-base-100 w-11/12 mx-auto">
             <div className="navbar-start">
@@ -46,7 +61,12 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'} className="btn md:w-32 text-white rounded-3xl btn-primary hover:btn-accent">Login</Link>
+                {
+                    user ?
+                        <Link onClick={handleLogout} className="btn md:w-32 text-white rounded-3xl btn-accent hover:btn-primary">Logout</Link>
+                        :
+                        <Link to={'/login'} className="btn md:w-32 text-white rounded-3xl btn-primary hover:btn-accent">Login</Link>
+                }
             </div>
         </div>
     );

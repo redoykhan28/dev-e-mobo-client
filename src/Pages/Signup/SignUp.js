@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginbg from '../../Assest/login/loginbg.PNG'
 import sidepic from '../../Assest/login/sidelogin3.png'
 import { authContext } from '../../Context/AuthProvider';
@@ -9,8 +9,16 @@ import toast from 'react-hot-toast';
 
 const SignUp = () => {
 
+    //use location and navigate
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/home'
+    const navigate = useNavigate();
+
     //use context
-    const { signUp, updateUser } = useContext(authContext)
+    const { signUp, updateUser } = useContext(authContext);
+
+    //state for error
+    const [error, setError] = useState(null)
 
     //using react hook form
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -20,7 +28,7 @@ const SignUp = () => {
 
         console.log(data)
 
-        //handling signup
+        //handling signup context
         signUp(data?.email, data?.password)
             .then(res => {
 
@@ -28,8 +36,13 @@ const SignUp = () => {
                 console.log(user);
                 handleProfile(data.name)
                 toast.success('Successfully SignUp!')
+                navigate(from, { replaced: true })
+
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err);
+                setError(err.message);
+            })
     }
 
     //update profile
@@ -93,7 +106,7 @@ const SignUp = () => {
                                 </select>
 
                                 {errors.password && <p className='text-red-600'><small>{errors.password.message}</small></p>}
-
+                                <p className='text-red-600 my-2'><small>{error}</small></p>
                             </div>
 
                             <div className="form-control mt-6">
