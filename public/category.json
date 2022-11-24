@@ -2,12 +2,12 @@
     {
         "id": "1",
         "name": "Iphone",
-        "image": "https://images.unsplash.com/photo-1662946834879-e42e04811369?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
+        "image": "https://images.unsplash.com/photo-1633085567284-c8e7a5b09034?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
     },
     {
         "id": "2",
         "name": "Samsung",
-        "image": "https://images.unsplash.com/photo-1662947995689-ec5165848ad0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
+        "image": "https://images.unsplash.com/photo-1581508473167-1c80505e5e8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
     },
     {
         "id": "3",
@@ -17,12 +17,12 @@
     {
         "id": "4",
         "name": "Xiaomi",
-        "image": "https://images.unsplash.com/photo-1662948100051-4d7b66b87c0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
+        "image": "https://images.unsplash.com/photo-1615215271771-f34c47f03697?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     },
     {
         "id": "5",
         "name": "Huawei",
-        "image": "https://images.unsplash.com/photo-1662948199505-e3f7f44b9a1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
+        "image": "https://images.unsplash.com/photo-1546706887-a24528987a75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     },
     {
         "id": "6",
