@@ -2,7 +2,7 @@
     {
         "id": "1",
         "name": "Iphone",
-        "image": "https://images.unsplash.com/photo-1592913950823-934c8c4ef82f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+        "image": "https://images.unsplash.com/photo-1662946834879-e42e04811369?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
     },
     {
         "id": "2",
@@ -12,11 +12,11 @@
     {
         "id": "3",
         "name": "OnePlus",
-        "image": "https://images.unsplash.com/photo-1658321467213-3af4efda4904?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        "image": "https://images.unsplash.com/photo-1592726664819-98c3e9f8b10c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     },
     {
         "id": "4",
-        "name": "OnePlus",
+        "name": "Xiaomi",
         "image": "https://images.unsplash.com/photo-1662948100051-4d7b66b87c0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80"
     },
     {
