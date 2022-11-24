@@ -1,5 +1,7 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginbg from '../../Assest/login/loginbg.PNG'
 import sidepic from '../../Assest/login/sidelogin3.png'
@@ -13,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     //use context
-    const { login } = useContext(authContext);
+    const { login, googleSignin } = useContext(authContext);
 
     //state for error
     const [error, setError] = useState(null)
@@ -41,6 +43,22 @@ const Login = () => {
             })
     }
 
+    //google login
+    const provider = new GoogleAuthProvider()
+
+    const handleGoogle = () => {
+        googleSignin(provider)
+            .then(res => {
+
+                const user = res.user;
+                console.log(user)
+                navigate(from, { replaced: true })
+
+            })
+            .catch(err => console.log(err))
+
+    }
+
 
     return (
         <div className='bg-no-repeat' style={{ backgroundImage: `url(${loginbg})` }}>
@@ -55,31 +73,34 @@ const Login = () => {
                         <figure>
                             <img src={sidepic} className="w-full hidden lg:block h-full" alt="Album" />
                         </figure>
-                        <form onSubmit={handleSubmit(handleLogin)} className="card-body">
+                        <div className="card-body">
+                            <form onSubmit={handleSubmit(handleLogin)} >
 
-                            <div className='mt-2 text-left'>
+                                <div className='mt-2 text-left'>
 
-                                <label htmlFor="email">Email</label>
-                                <input {...register('email', { required: 'This field is required' })} type="email" placeholder='email' className="input input-bordered w-full mt-1" />
+                                    <label htmlFor="email">Email</label>
+                                    <input {...register('email', { required: 'This field is required' })} type="email" placeholder='email' className="input input-bordered w-full mt-1" />
 
-                                {errors.email && <p className='text-red-600'><small>{errors.email.message}</small></p>}
+                                    {errors.email && <p className='text-red-600'><small>{errors.email.message}</small></p>}
 
-                            </div>
+                                </div>
 
-                            <div className='mt-2 text-left'>
+                                <div className='mt-2 text-left'>
 
-                                <label htmlFor="password">Password</label>
-                                <input  {...register('password', { required: 'This field is required', minLength: { value: 6, message: 'Password Should be 6 length long' } })} placeholder='Password' type="password" className="input input-bordered w-full mt-1" />
+                                    <label htmlFor="password">Password</label>
+                                    <input  {...register('password', { required: 'This field is required', minLength: { value: 6, message: 'Password Should be 6 length long' } })} placeholder='Password' type="password" className="input input-bordered w-full mt-1" />
 
-                                {errors.password && <p className='text-red-600'><small>{errors.password.message}</small></p>}
-                                <p className='text-red-600 my-2'><small>{error}</small></p>
-                            </div>
+                                    {errors.password && <p className='text-red-600'><small>{errors.password.message}</small></p>}
+                                    <p className='text-red-600 my-2'><small>{error}</small></p>
+                                </div>
 
 
-                            <div className="form-control">
-                                <button className="btn btn-primary">Login</button>
-                            </div>
-                        </form>
+                                <div className="form-control">
+                                    <button className="btn btn-primary">Login</button>
+                                </div>
+                            </form>
+                            <button onClick={handleGoogle} className='btn btn-outline mt-6'><FaGoogle className='text-accent mr-2' /> Google</button>
+                        </div>
                     </div>
                 </div>
             </div>
