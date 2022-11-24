@@ -20,7 +20,7 @@ module.exports = {
 
           "info": "#F66240",
 
-          "success": "#36D399",
+          "success": "#eaebed",
 
           "warning": "#FBBD23",
 
