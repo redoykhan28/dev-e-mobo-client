@@ -12,7 +12,7 @@ const CategoryCard = ({ category }) => {
                 <div className="card-body">
                     <div className="flex justify-between items-center">
                         <h2 className="card-title">{name}</h2>
-                        <Link className="text-primary text-xl font-bold"><FaArrowRight /></Link>
+                        <Link to={`/product/${name}`} className="text-primary text-xl font-bold"><FaArrowRight /></Link>
                     </div>
                 </div>
             </div>

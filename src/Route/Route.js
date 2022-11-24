@@ -1,6 +1,10 @@
+import DashBoardLayout from "../Layouts/DashBoardLayout";
 import Categories from "../Pages/Categories/Categories";
+import DashBoard from "../Pages/Dashboard/DashBoard/DashBoard";
 import Login from "../Pages/Login/Login";
+import Products from "../Pages/Products/Products";
 import SignUp from "../Pages/Signup/SignUp";
+import PrivetRoute from '../Route/PrivetRoute'
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layouts/Main");
@@ -32,6 +36,12 @@ const router = createBrowserRouter([
                 path: '/categories',
                 element: <Categories></Categories>
             },
+
+            {
+                path: '/product/:name',
+                element: <PrivetRoute><Products></Products></PrivetRoute>
+            },
+
             {
                 path: '/login',
                 element: <Login></Login>
@@ -42,6 +52,16 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
 
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashBoardLayout></DashBoardLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <DashBoard></DashBoard>
+            }
         ]
     }
 ])

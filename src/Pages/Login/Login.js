@@ -96,10 +96,11 @@ const Login = () => {
 
 
                                 <div className="form-control">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-primary mt-2 text-white">Login</button>
                                 </div>
                             </form>
-                            <button onClick={handleGoogle} className='btn btn-outline mt-6'><FaGoogle className='text-accent mr-2' /> Google</button>
+                            <div className="divider">OR</div>
+                            <button onClick={handleGoogle} className='btn btn-outline mt-4'><FaGoogle className='text-accent mr-2' /> Google</button>
                         </div>
                     </div>
                 </div>
