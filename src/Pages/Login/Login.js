@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginbg from '../../Assest/login/loginbg.PNG'
 import sidepic from '../../Assest/login/sidelogin3.png'
 import { authContext } from '../../Context/AuthProvider';
+import { getToken } from '../../Token/Token';
 
 const Login = () => {
 
@@ -33,6 +34,7 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                getToken(data.email)
                 navigate(from, { replaced: true })
                 setError(null)
             })
@@ -56,6 +58,7 @@ const Login = () => {
                 const user = res.user;
                 console.log(user)
                 postUser(user.displayName, user.email, role)
+                getToken(user.email)
                 navigate(from, { replaced: true })
 
             })
@@ -83,7 +86,9 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(data => {
+
                 console.log(data)
+
             })
 
     }

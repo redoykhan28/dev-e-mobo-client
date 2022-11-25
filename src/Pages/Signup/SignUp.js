@@ -5,6 +5,7 @@ import loginbg from '../../Assest/login/loginbg.PNG'
 import sidepic from '../../Assest/login/sidelogin3.png'
 import { authContext } from '../../Context/AuthProvider';
 import toast from 'react-hot-toast';
+import { getToken } from '../../Token/Token';
 
 
 const SignUp = () => {
@@ -68,6 +69,7 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                getToken(email)
             })
 
     }

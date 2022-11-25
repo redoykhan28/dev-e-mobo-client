@@ -10,7 +10,14 @@ const MyBooking = () => {
 
     const { data: myBookings = [], isLoading } = useQuery({
         queryKey: ['mybooking'],
-        queryFn: () => fetch(`http://localhost:5000/myBookings/?email=${user?.email}`)
+        queryFn: () => fetch(`http://localhost:5000/myBookings/?email=${user?.email}`, {
+
+            headers: {
+
+                authorization: `bearer ${localStorage.getItem('token')}`
+            }
+
+        })
             .then(res => res.json())
     })
 
