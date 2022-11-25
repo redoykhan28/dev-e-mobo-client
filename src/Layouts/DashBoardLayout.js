@@ -18,7 +18,7 @@ const DashBoardLayout = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                        <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'}>My Order</NavLink></li>
+                        <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/dashboard'}>My Order</NavLink></li>
 
                         <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/addProducts'}>Add Products</NavLink></li>
 
