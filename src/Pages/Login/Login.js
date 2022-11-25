@@ -47,15 +47,44 @@ const Login = () => {
     const provider = new GoogleAuthProvider()
 
     const handleGoogle = () => {
+
+        const role = 'buyer'
+
         googleSignin(provider)
             .then(res => {
 
                 const user = res.user;
                 console.log(user)
+                postUser(user.displayName, user.email, role)
                 navigate(from, { replaced: true })
 
             })
             .catch(err => console.log(err))
+
+    }
+
+    // post user
+    const postUser = (name, email, role) => {
+
+        const currentUser = {
+
+            name,
+            email,
+            role
+        }
+
+        fetch('http://localhost:5000/user', {
+            method: "POST",
+            headers: {
+
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
 
     }
 

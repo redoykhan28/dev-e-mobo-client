@@ -42,7 +42,7 @@ const Nav = () => {
                                 Categories
                                 <FaAngleDown />
                             </Link>
-                            <ul className="p-2 bg-base-100">
+                            <ul className="p-2 bg-accent text-white">
                                 {
                                     categories?.map(category => <li><Link to={`/product/${category.name}`} key={category._id}>{category.name}</Link></li>
                                     )
@@ -68,7 +68,7 @@ const Nav = () => {
                             Categories
                             <FaAngleDown />
                         </Link>
-                        <ul className="p-2 bg-base-100">
+                        <ul className="p-2 bg-accent text-white">
                             {
                                 categories?.map(category => <li><Link to={`/product/${category.name}`} key={category._id}>{category.name}</Link></li>
                                 )

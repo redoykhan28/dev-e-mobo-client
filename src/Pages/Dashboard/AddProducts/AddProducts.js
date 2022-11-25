@@ -124,7 +124,7 @@ const AddProducts = () => {
                     </div>
 
                     <div>
-                        <input {...register('image', { required: 'This field is required' })} type="file" className="file-input w-11/12 my-4 border-accent mx-auto" />
+                        <input {...register('image', { required: 'This field is required' })} type="file" className="file-input file-input-primary w-11/12 my-4 mx-auto" />
                         {errors.image && <p className='text-red-600'><small>{errors.image.message}</small></p>}
                     </div>
 

@@ -27,6 +27,7 @@ const SignUp = () => {
     const handleSignUp = (data) => {
 
         console.log(data)
+        const role = data.role
 
         //handling signup context
         signUp(data?.email, data?.password)
@@ -35,6 +36,7 @@ const SignUp = () => {
                 const user = res.user;
                 console.log(user);
                 handleProfile(data.name)
+                postUser(data.name, data.email, role)
                 toast.success('Successfully SignUp!')
                 navigate(from, { replaced: true })
 
@@ -43,6 +45,31 @@ const SignUp = () => {
                 console.error(err);
                 setError(err.message);
             })
+    }
+
+    // post user
+    const postUser = (name, email, role) => {
+
+        const currentUser = {
+
+            name,
+            email,
+            role
+        }
+
+        fetch('http://localhost:5000/user', {
+            method: "POST",
+            headers: {
+
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+
     }
 
     //update profile

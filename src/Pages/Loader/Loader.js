@@ -5,8 +5,8 @@ const Loader = () => {
         <div>
             <div>
                 <div className='my-32 text-center'>
-                    <p className=' text-md text-secondary'>Loading...</p>
-                    <progress className="progress w-56 text-secondary"></progress>
+                    <p className=' text-md text-accent'>Loading...</p>
+                    <progress className="progress bg-accent w-56"></progress>
                 </div>
             </div>
         </div>
