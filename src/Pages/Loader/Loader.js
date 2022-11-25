@@ -4,9 +4,9 @@ const Loader = () => {
     return (
         <div>
             <div>
-                <div className='mt-32 text-center'>
-                    <p className=' text-md text-primary'>Loading...</p>
-                    <progress className="progress w-56 text-primary"></progress>
+                <div className='my-32 text-center'>
+                    <p className=' text-md text-secondary'>Loading...</p>
+                    <progress className="progress w-56 text-secondary"></progress>
                 </div>
             </div>
         </div>
