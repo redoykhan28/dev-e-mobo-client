@@ -20,7 +20,7 @@ const AddProducts = () => {
     const { data: categories = [] } = useQuery({
 
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories/name')
+        queryFn: () => fetch('http://localhost:5000/categories/cat-name')
             .then(res => res.json())
     })
 

@@ -8,8 +8,8 @@ import Loader from '../../Loader/Loader';
 const Category = () => {
     //use query
     const { data: categories = [], isLoading } = useQuery({
-        queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories/limit')
+        queryKey: ['cat'],
+        queryFn: () => fetch('http://localhost:5000/limitCategory/limit')
             .then(res => res.json())
     })
 

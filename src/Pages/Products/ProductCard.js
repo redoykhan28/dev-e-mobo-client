@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
                     <h2 className="card-title">{product_name}</h2>
                     <p className='text-start'><span className='font-bold'>Specification: </span>{details}</p>
 
-                    <div className='flex mt-4 justify-between'>
+                    <div className='flex flex-col md:flex-row mt-4 justify-between'>
                         <h5 className='text-start font-bold'>Price: {selling_price}TK</h5>
                         <h5 className='text-start font-bold'>Purchase Price: {purchase_price}TK</h5>
                     </div>

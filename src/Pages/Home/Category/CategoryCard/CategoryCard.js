@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CategoryCard = ({ category }) => {
     const { name, image } = category
+    console.log(category)
     return (
         <div>
             <div className="card w-72 mx-auto bg-base-100 shadow-2xl rounded-none	">
