@@ -1,9 +1,19 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assest/logo.PNG'
 import { authContext } from '../../../Context/AuthProvider';
 
 const Nav = () => {
+
+    //use query for load category in nav
+    const { data: categories = [] } = useQuery({
+
+        queryKey: ['categories'],
+        queryFn: () => fetch('http://localhost:5000/categories/name')
+            .then(res => res.json())
+    })
 
     //use context
     const { user, logout } = useContext(authContext)
@@ -30,11 +40,13 @@ const Nav = () => {
                         <li tabIndex={0}>
                             <Link className="justify-between">
                                 Categories
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+                                <FaAngleDown />
                             </Link>
                             <ul className="p-2 bg-base-100">
-                                <li><Link>Submenu 1</Link></li>
-                                <li><Link>Submenu 2</Link></li>
+                                {
+                                    categories?.map(category => <li><Link to={`/product/${category.name}`} key={category._id}>{category.name}</Link></li>
+                                    )
+                                }
                             </ul>
                         </li>
                         <li><Link>Blogs</Link></li>
@@ -54,11 +66,13 @@ const Nav = () => {
                     <li tabIndex={0}>
                         <Link className="justify-between">
                             Categories
-                            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+                            <FaAngleDown />
                         </Link>
                         <ul className="p-2 bg-base-100">
-                            <li><Link>Submenu 1</Link></li>
-                            <li><Link>Submenu 2</Link></li>
+                            {
+                                categories?.map(category => <li><Link to={`/product/${category.name}`} key={category._id}>{category.name}</Link></li>
+                                )
+                            }
                         </ul>
                     </li>
                     <li><Link>Blogs</Link></li>
