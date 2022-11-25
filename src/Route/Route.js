@@ -1,7 +1,7 @@
 import DashBoardLayout from "../Layouts/DashBoardLayout";
 import Categories from "../Pages/Categories/Categories";
 import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
-import DashBoard from "../Pages/Dashboard/DashBoard/DashBoard";
+import MyBooking from "../Pages/Dashboard/DashBoard/MyBooking";
 import Login from "../Pages/Login/Login";
 import Products from "../Pages/Products/Products";
 import SignUp from "../Pages/Signup/SignUp";
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>
+                element: <PrivetRoute><MyBooking></MyBooking></PrivetRoute>
             },
 
             {
