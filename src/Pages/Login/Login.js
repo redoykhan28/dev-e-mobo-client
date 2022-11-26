@@ -50,7 +50,7 @@ const Login = () => {
 
     const handleGoogle = () => {
 
-        const role = 'buyer'
+        const role = 'Buyer'
 
         googleSignin(provider)
             .then(res => {

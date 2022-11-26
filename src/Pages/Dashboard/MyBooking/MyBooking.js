@@ -31,7 +31,7 @@ const MyBooking = () => {
             <h4 className='text-center text-2xl font-bold my-4'>My Orders</h4>
             <div>
                 <div className="overflow-x-auto mt-8">
-                    <table className="table w-11/12 mx-auto rounded-xl shadow-xl">
+                    <table className="table w-11/12 mx-auto rounded-2xl shadow-xl">
                         <thead>
                             <tr>
                                 <th>Sl</th>

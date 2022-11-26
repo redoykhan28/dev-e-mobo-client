@@ -85,7 +85,7 @@ const Nav = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <Link onClick={handleLogout} className="btn md:w-32 text-white rounded-3xl btn-accent hover:btn-primary">Logout</Link>
+                        <Link onClick={handleLogout} className="btn md:w-32 text-white rounded-3xl btn-accent hover:btn-secondary">Logout</Link>
                         :
                         <Link to={'/login'} className="btn md:w-32 text-white rounded-3xl btn-primary hover:btn-accent">Login</Link>
                 }

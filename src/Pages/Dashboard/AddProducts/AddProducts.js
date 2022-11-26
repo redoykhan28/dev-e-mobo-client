@@ -65,6 +65,7 @@ const AddProducts = () => {
                         product_img: imgData.data.url,
                         condition: data.condition,
                         seller_name: user?.displayName,
+                        seller_email: user?.email,
                         category: data.category,
                         details: data.details,
                         published_date: date

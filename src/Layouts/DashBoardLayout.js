@@ -34,7 +34,14 @@ const DashBoardLayout = () => {
                             <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/addProducts'}>Add Products</NavLink></li>
                         }
 
-                        <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/manageDoc'}>Manage Doctors</NavLink></li>
+                        {
+                            isSeller &&
+                            <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/myProduct'}>My Products</NavLink></li>
+                        }
+
+                        <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/allbuyer'}>All Buyer</NavLink></li>
+
+                        <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/allseller'} >All Seller</NavLink></li>
                     </ul>
 
                 </div>
