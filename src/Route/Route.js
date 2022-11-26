@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Products from "../Pages/Products/Products";
 import SignUp from "../Pages/Signup/SignUp";
 import PrivetRoute from '../Route/PrivetRoute'
+import SellerRoute from "./SellerRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layouts/Main");
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <DashBoardLayout></DashBoardLayout>,
+        element: <PrivetRoute><DashBoardLayout></DashBoardLayout></PrivetRoute>,
         children: [
             {
                 path: '/dashboard',
@@ -67,7 +68,7 @@ const router = createBrowserRouter([
 
             {
                 path: '/addProducts',
-                element: <PrivetRoute><AddProducts></AddProducts></PrivetRoute>
+                element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
             }
         ]
     }

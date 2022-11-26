@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { authContext } from '../Context/AuthProvider';
+import useSeller from '../Hooks/SellerHook';
 import Nav from '../Pages/Shared/Nav/Nav';
 
 const DashBoardLayout = () => {
+
+    //use context
+    const { user } = useContext(authContext)
+
+    //use seller hooks
+    const [isSeller] = useSeller(user?.email)
+
     return (
         <div>
             <Nav></Nav>
@@ -20,7 +29,10 @@ const DashBoardLayout = () => {
 
                         <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/dashboard'}>My Order</NavLink></li>
 
-                        <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/addProducts'}>Add Products</NavLink></li>
+                        {
+                            isSeller &&
+                            <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/addProducts'}>Add Products</NavLink></li>
+                        }
 
                         <li><NavLink className={({ isActive }) => isActive ? 'bg-primary text-white rounded-md mt-2' : 'text-black text-decoration-none font-bold'} to={'/manageDoc'}>Manage Doctors</NavLink></li>
                     </ul>
