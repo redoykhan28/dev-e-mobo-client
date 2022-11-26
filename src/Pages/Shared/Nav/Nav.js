@@ -57,7 +57,7 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className='flex'>
-                    <img className='w-40' src={logo} alt="logo" />
+                    <Link to={'/home'}><img className='w-40' src={logo} alt="logo" /></Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -68,7 +68,7 @@ const Nav = () => {
                             Categories
                             <FaAngleDown />
                         </Link>
-                        <ul className="p-2 bg-accent text-white">
+                        <ul className="p-2 bg-accent shadow-2xl text-white">
                             {
                                 categories?.map(category => <li><Link to={`/product/${category.name}`} key={category._id}>{category.name}</Link></li>
                                 )

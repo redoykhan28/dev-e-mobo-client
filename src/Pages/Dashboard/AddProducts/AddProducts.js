@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { format } from 'date-fns'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { authContext } from '../../../Context/AuthProvider';
 
 
 
 const AddProducts = () => {
+
+    //use context
+    const { user } = useContext(authContext)
 
     //image host key
     const imageHostKey = process.env.REACT_APP_imageHostKey
@@ -60,6 +64,7 @@ const AddProducts = () => {
                         purchase_date: data.year,
                         product_img: imgData.data.url,
                         condition: data.condition,
+                        seller_name: user?.displayName,
                         category: data.category,
                         details: data.details,
                         published_date: date
@@ -130,8 +135,8 @@ const AddProducts = () => {
                     </div>
 
                     <div>
-                        <input {...register('buyer', { required: 'This field is required' })} type="text" placeholder="Buyer Name" className="input input-bordered w-11/12 my-4 border-accent mx-auto" />
-                        {errors.buyer && <p className='text-red-600'><small>{errors.buyer.message}</small></p>}
+                        <input type="text" disabled defaultValue={user?.displayName} className="input input-bordered w-11/12 my-4 border-accent mx-auto" />
+
                     </div>
 
                     <div>
