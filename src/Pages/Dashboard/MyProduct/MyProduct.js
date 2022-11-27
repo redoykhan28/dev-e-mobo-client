@@ -1,13 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { authContext } from '../../../Context/AuthProvider';
+import ProductModal from './ProductModal/ProductModal';
 
 const MyProduct = () => {
     //use context
     const { user } = useContext(authContext)
 
+    //deleting product
+    const [deleteProduct, setDeleteProduct] = useState(null)
+
     //use query
-    const { data: myProducts = [] } = useQuery({
+    const { data: myProducts = [], refetch } = useQuery({
 
         queryKey: ['my products'],
         queryFn: () => fetch(`http://localhost:5000/myproducts?email=${user?.email}`, {
@@ -32,6 +36,7 @@ const MyProduct = () => {
                                 <th>Price</th>
                                 <th>category</th>
                                 <th>published Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,12 +59,22 @@ const MyProduct = () => {
                                         <td>{product.selling_price}TK</td>
                                         <td>{product.category}</td>
                                         <td>{product.published_date}</td>
-
-                                    </tr>)
+                                        <td>
+                                            <label onClick={() => setDeleteProduct(product)} htmlFor="shared-modal" className="btn btn-sm bg-red-600 text-white hover:bg-accent border-0">Delete</label>
+                                        </td>
+                                    </tr>
+                                )
                             }
                         </tbody>
                     </table>
                 </div>
+
+                {
+                    deleteProduct &&
+                    <ProductModal refetch={refetch} deleteProduct={deleteProduct} setDeleteProduct={setDeleteProduct} message={'Are you sure you wants to delete?'}></ProductModal>
+
+                }
+
             </div>
         </div>
     );

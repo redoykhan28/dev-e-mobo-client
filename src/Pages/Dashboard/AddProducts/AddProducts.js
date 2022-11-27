@@ -4,6 +4,7 @@ import { format } from 'date-fns'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { authContext } from '../../../Context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -11,6 +12,9 @@ const AddProducts = () => {
 
     //use context
     const { user } = useContext(authContext)
+
+    //use navigate
+    const navigate = useNavigate()
 
     //image host key
     const imageHostKey = process.env.REACT_APP_imageHostKey
@@ -85,7 +89,7 @@ const AddProducts = () => {
                         .then(productData => {
                             console.log(productData)
                             toast.success('Product successfully added!')
-
+                            navigate('/myProduct')
                         })
                 }
 

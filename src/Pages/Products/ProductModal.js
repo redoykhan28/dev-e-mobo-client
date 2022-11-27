@@ -2,11 +2,15 @@ import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { authContext } from '../../Context/AuthProvider';
 
 const ProductModal = ({ productBook, setProductBook }) => {
     //use context
     const { user } = useContext(authContext)
+
+    //use navigate
+    const navigate = useNavigate()
 
     //set date
     const date = format(new Date(), 'PP')
@@ -48,7 +52,8 @@ const ProductModal = ({ productBook, setProductBook }) => {
 
                 if (data.acknowledged) {
                     console.log(data)
-                    toast.success('purchased succesfully! check my order..')
+                    toast.success('purchased succesfully')
+                    navigate('/myorder')
                     setProductBook(null)
                 }
             })

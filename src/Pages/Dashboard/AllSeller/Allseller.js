@@ -90,7 +90,7 @@ const Allseller = () => {
                                             seller?.role === 'admin' ?
                                                 <td><p className='text-blue-600 font:bold'>Verified <FaCheckCircle></FaCheckCircle> </p></td>
                                                 :
-                                                <td><button onClick={() => handleVerifySeller(seller._id)} className='btn btn-sm bg-accent text-white hover:bg-black'>Verify Seller</button></td>
+                                                <td><button onClick={() => handleVerifySeller(seller._id)} className='btn btn-sm bg-accent text-white hover:bg-black border-0'>Verify Seller</button></td>
                                         }
                                         <td>
                                             <label onClick={() => setDeleteSeller(seller)} htmlFor="shared-modal" className="btn btn-sm bg-red-600 text-white hover:bg-accent border-0">Delete</label>
