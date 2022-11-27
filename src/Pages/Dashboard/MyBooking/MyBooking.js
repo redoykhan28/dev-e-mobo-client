@@ -32,7 +32,7 @@ const MyBooking = () => {
             <div>
                 <div className="overflow-x-auto mt-8">
                     <table className="table w-11/12 mx-auto rounded-2xl shadow-xl">
-                        <thead>
+                        <thead >
                             <tr>
                                 <th>Sl</th>
                                 <th>Name</th>

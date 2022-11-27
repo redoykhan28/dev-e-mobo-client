@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { authContext } from '../../Context/AuthProvider';
+import useBuyer from '../../Hooks/BuyerHooks';
 
 const ProductCard = ({ product, setProductBook }) => {
+
+    //use context
+    const { user } = useContext(authContext)
+
+    //use buyer hook
+    const [isBuyer] = useBuyer(user?.email)
 
     const { product_name, phone, purchase_price, selling_price, location, purchase_date, published_date, product_img, condition, details } = product
 
@@ -28,7 +36,10 @@ const ProductCard = ({ product, setProductBook }) => {
                     <div className="card-actions justify-between items-center">
                         <h5 className='text-start'>Published at: {published_date}</h5>
 
-                        <label onClick={() => setProductBook(product)} htmlFor="my-modal-6" className="btn btn-primary text-white">Purchase</label>
+                        {
+                            isBuyer &&
+                            <label onClick={() => setProductBook(product)} htmlFor="my-modal-6" className="btn btn-primary text-white">Purchase</label>
+                        }
 
                     </div>
                 </div>

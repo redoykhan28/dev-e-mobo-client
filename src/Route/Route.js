@@ -3,12 +3,15 @@ import Categories from "../Pages/Categories/Categories";
 import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
 import AllBuyer from "../Pages/Dashboard/AllBuyer/AllBuyer";
 import Allseller from "../Pages/Dashboard/AllSeller/Allseller";
+import DashHome from "../Pages/Dashboard/DashHome";
 import MyBooking from "../Pages/Dashboard/MyBooking/MyBooking";
 import MyProduct from "../Pages/Dashboard/MyProduct/MyProduct";
 import Login from "../Pages/Login/Login";
 import Products from "../Pages/Products/Products";
 import SignUp from "../Pages/Signup/SignUp";
 import PrivetRoute from '../Route/PrivetRoute'
+import AdminRoute from "./AdminRoute";
+import BuyerRoute from "./BuyerRoute";
 import SellerRoute from "./SellerRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -66,7 +69,13 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <PrivetRoute><MyBooking></MyBooking></PrivetRoute>
+                element: <DashHome></DashHome>
+
+            },
+
+            {
+                path: '/myorder',
+                element: <BuyerRoute><MyBooking></MyBooking></BuyerRoute>
             },
 
             {
@@ -80,12 +89,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allbuyer',
-                element: <PrivetRoute><AllBuyer></AllBuyer></PrivetRoute>
+                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
 
             {
                 path: '/allseller',
-                element: <PrivetRoute><Allseller></Allseller></PrivetRoute>
+                element: <AdminRoute><Allseller></Allseller></AdminRoute>
             },
         ]
     }
