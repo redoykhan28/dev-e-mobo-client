@@ -1,10 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCheckCircle } from 'react-icons/fa';
 import SellerModal from './SellerModal/SellerModal';
+import { authContext } from '../../../Context/AuthProvider';
+import AdminModal from './AdminModal/AdminModal';
 
 const Allseller = () => {
+
+    const { logout } = useContext(authContext)
+
+    //state for admin
+    const [admin, setAdmin] = useState(null)
 
     //deleting seller
     const [deleteSeller, setDeleteSeller] = useState(null)
@@ -18,30 +25,17 @@ const Allseller = () => {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
     })
 
-    // update seller to admin 
-    const handleAdmin = (id) => {
-
-        fetch(`http://localhost:5000/admin/${id}`, {
-
-            method: "PUT",
-            headers: {
-                authorization: `bearer ${localStorage.getItem('token')}`
-            }
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    console.log(data)
-                    toast.success("Admin added successfully")
-                    refetch()
-                }
-            })
-
-    }
 
     //verify a seller
     const handleVerifySeller = (id) => {
@@ -57,6 +51,7 @@ const Allseller = () => {
                 if (data.acknowledged) {
                     console.log(data)
                     toast.success(`Seller verified`)
+                    refetch()
                 }
             })
     }
@@ -85,10 +80,15 @@ const Allseller = () => {
                                         <td>{i + 1}</td>
                                         <td>{seller.name}</td>
                                         <td>{seller.email}</td>
-                                        <td><button onClick={() => handleAdmin(seller._id)} className='btn btn-sm bg-orange-500 text-white hover:bg-accent'>Make Admin</button></td>
+                                        <td>
+                                            <label onClick={() => setAdmin(seller)} htmlFor="shared-modal" className="btn btn-sm bg-orange-500 text-white hover:bg-accent">Make Admin</label>
+
+                                        </td>
                                         {
-                                            seller?.role === 'admin' ?
-                                                <td><p className='text-blue-600 font:bold'>Verified <FaCheckCircle></FaCheckCircle> </p></td>
+                                            seller.verify === true ?
+                                                <td className='flex items-center'><p className='text-blue-600 font:bold mr-1'>Verified</p>
+                                                    <FaCheckCircle className='text-blue-600'></FaCheckCircle>
+                                                </td>
                                                 :
                                                 <td><button onClick={() => handleVerifySeller(seller._id)} className='btn btn-sm bg-accent text-white hover:bg-black border-0'>Verify Seller</button></td>
                                         }
@@ -105,6 +105,15 @@ const Allseller = () => {
                     {
                         deleteSeller &&
                         <SellerModal refetch={refetch} deleteSeller={deleteSeller} setDeleteSeller={setDeleteSeller} message={'Are you sure you wants to delete?'}></SellerModal>
+
+                    }
+
+                </div>
+                <div>
+
+                    {
+                        admin &&
+                        <AdminModal refetch={refetch} admin={admin} setAdmin={setAdmin}></AdminModal>
 
                     }
 

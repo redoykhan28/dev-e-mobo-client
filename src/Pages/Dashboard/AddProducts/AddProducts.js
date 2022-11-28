@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const AddProducts = () => {
 
     //use context
-    const { user } = useContext(authContext)
+    const { user, logout } = useContext(authContext)
 
     //use navigate
     const navigate = useNavigate()
@@ -29,7 +29,16 @@ const AddProducts = () => {
 
         queryKey: ['categories'],
         queryFn: () => fetch('http://localhost:5000/categories/cat-name')
-            .then(res => res.json())
+            .then(res => {
+
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
     })
 
     //using react hook form

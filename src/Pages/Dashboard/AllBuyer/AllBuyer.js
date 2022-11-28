@@ -1,9 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import AdminModal from '../AllSeller/AdminModal/AdminModal';
 import BuyerModal from './BuyerModal/BuyerModal';
 
 const AllBuyer = () => {
+
+    //state for admin
+    const [admin, setAdmin] = useState(null)
 
     //deleting buyer
     const [deleteBuyer, setDeleteBuyer] = useState(null)
@@ -19,29 +23,6 @@ const AllBuyer = () => {
         })
             .then(res => res.json())
     })
-
-
-    // update buyer to admin 
-    const handleAdmin = (id) => {
-
-        fetch(`http://localhost:5000/admin/${id}`, {
-
-            method: "PUT",
-            headers: {
-                authorization: `bearer ${localStorage.getItem('token')}`
-            }
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    console.log(data)
-                    toast.success("Admin added successfully")
-                    refetch()
-                }
-            })
-
-    }
 
     return (
 
@@ -68,7 +49,8 @@ const AllBuyer = () => {
                                         <td>{i + 1}</td>
                                         <td>{buyer.name}</td>
                                         <td>{buyer.email}</td>
-                                        <td><button onClick={() => handleAdmin(buyer._id)} className='btn btn-sm bg-orange-500 text-white hover:bg-accent border-0'>Make Admin</button></td>
+                                        <td><label onClick={() => setAdmin(buyer)} htmlFor="shared-modal" className="btn btn-sm bg-orange-500 text-white hover:bg-accent">Make Admin</label>
+                                        </td>
                                         <td>
                                             <label onClick={() => setDeleteBuyer(buyer)} htmlFor="shared-modal" className="btn btn-sm bg-red-600 text-white hover:bg-accent border-0">Delete</label>
                                         </td>
@@ -82,6 +64,12 @@ const AllBuyer = () => {
                         deleteBuyer &&
                         <BuyerModal refetch={refetch} deleteBuyer={deleteBuyer} setDeleteBuyer={setDeleteBuyer} message={'Are you sure you wants to delete?'}></BuyerModal>
 
+                    }
+                </div>
+                <div>
+                    {
+                        admin &&
+                        <AdminModal refetch={refetch} admin={admin} setAdmin={setAdmin}></AdminModal>
                     }
                 </div>
             </div>

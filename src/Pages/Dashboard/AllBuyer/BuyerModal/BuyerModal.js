@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { authContext } from '../../../../Context/AuthProvider';
 
 const BuyerModal = ({ deleteBuyer, refetch, message, setDeleteBuyer }) => {
+
+    //use context
+    const { logout } = useContext(authContext)
 
     //handle delete buyer
     const handleDelete = (buyer) => {
@@ -15,7 +19,15 @@ const BuyerModal = ({ deleteBuyer, refetch, message, setDeleteBuyer }) => {
 
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
             .then(data => {
 
                 if (data.deletedCount > 0) {

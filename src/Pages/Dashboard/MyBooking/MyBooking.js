@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { authContext } from '../../../Context/AuthProvider';
 import Loader from '../../Loader/Loader';
 
 const MyBooking = () => {
 
     //use context
-    const { user } = useContext(authContext)
+    const { logout, user } = useContext(authContext)
 
     const { data: myBookings = [], isLoading } = useQuery({
         queryKey: ['mybooking'],
@@ -18,7 +19,15 @@ const MyBooking = () => {
             }
 
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
     })
 
     if (isLoading) {
@@ -39,19 +48,30 @@ const MyBooking = () => {
                                 <th>Price</th>
                                 <th>Location</th>
                                 <th>Purchase Date</th>
+                                <th>Payment</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             {
                                 myBookings?.map((booking, i) =>
-                                    <tr key={booking._id} className="hover">
+                                    <tr key={booking._id}>
 
                                         <td>{i + 1}</td>
                                         <td>{booking.product_name}</td>
                                         <td>{booking.price}</td>
                                         <td>{booking.location}</td>
                                         <td>{booking.purchase_date}</td>
+                                        <td>
+                                            {
+                                                booking.price && !booking.paid && <Link to={`/payment/${booking._id}`} className='btn btn-xs bg-primary text-white hover:bg-accent border-0'>Payment</Link>
+
+                                            }
+
+                                            {
+                                                booking.price && booking.paid && <span className='text-green-500 font-bold'>Paid</span>
+                                            }
+                                        </td>
 
                                     </tr>)
                             }
