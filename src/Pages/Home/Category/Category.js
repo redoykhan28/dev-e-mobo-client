@@ -9,7 +9,7 @@ const Category = () => {
     //use query
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['cat'],
-        queryFn: () => fetch('http://localhost:5000/limitCategory/limit')
+        queryFn: () => fetch('https://e-mobo-server.vercel.app/limitCategory/limit')
             .then(res => res.json())
     })
 

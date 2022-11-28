@@ -39,7 +39,7 @@ const ProductModal = ({ productBook, setProductBook }) => {
         }
 
         // post data for booking 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://e-mobo-server.vercel.app/booking', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

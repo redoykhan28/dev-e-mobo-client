@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path: '/product/:name',
                 element: <PrivetRoute><Products></Products></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
+                loader: ({ params }) => fetch(`https://e-mobo-server.vercel.app/category/${params.name}`)
             },
 
             {
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             {
                 path: '/payment/:id',
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+                loader: ({ params }) => fetch(`https://e-mobo-server.vercel.app/product/${params.id}`)
             },
 
             {

@@ -76,7 +76,7 @@ const Login = () => {
             role
         }
 
-        fetch('http://localhost:5000/user', {
+        fetch('https://e-mobo-server.vercel.app/user', {
             method: "POST",
             headers: {
 

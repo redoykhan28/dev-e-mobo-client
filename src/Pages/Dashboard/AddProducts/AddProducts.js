@@ -28,7 +28,7 @@ const AddProducts = () => {
     const { data: categories = [] } = useQuery({
 
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories/cat-name')
+        queryFn: () => fetch('https://e-mobo-server.vercel.app/categories/cat-name')
             .then(res => {
 
                 if (res.status === 401 || res.status === 403) {
@@ -86,7 +86,7 @@ const AddProducts = () => {
                     }
 
                     //api for post
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://e-mobo-server.vercel.app/products', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

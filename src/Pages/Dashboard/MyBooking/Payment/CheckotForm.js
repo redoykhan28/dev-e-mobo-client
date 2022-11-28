@@ -19,7 +19,7 @@ const CheckotForm = ({ purchase }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://e-mobo-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const CheckotForm = ({ purchase }) => {
 
             }
 
-            fetch('http://localhost:5000/payemnts', {
+            fetch('https://e-mobo-server.vercel.app/payemnts', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

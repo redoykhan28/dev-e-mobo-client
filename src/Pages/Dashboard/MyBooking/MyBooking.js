@@ -11,7 +11,7 @@ const MyBooking = () => {
 
     const { data: myBookings = [], isLoading } = useQuery({
         queryKey: ['mybooking'],
-        queryFn: () => fetch(`http://localhost:5000/myBookings/?email=${user?.email}`, {
+        queryFn: () => fetch(`https://e-mobo-server.vercel.app/myBookings/?email=${user?.email}`, {
 
             headers: {
 

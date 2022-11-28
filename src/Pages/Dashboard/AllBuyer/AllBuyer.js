@@ -16,7 +16,7 @@ const AllBuyer = () => {
     const { data: allBuyers = [], refetch } = useQuery({
 
         queryKey: ['all buyer'],
-        queryFn: () => fetch('http://localhost:5000/allbuyer/?role=Buyer', {
+        queryFn: () => fetch('https://e-mobo-server.vercel.app/allbuyer/?role=Buyer', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }

@@ -11,7 +11,7 @@ const Nav = () => {
     const { data: categories = [] } = useQuery({
 
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories/cat-name')
+        queryFn: () => fetch('https://e-mobo-server.vercel.app/categories/cat-name')
             .then(res => res.json())
     })
 
@@ -49,7 +49,7 @@ const Nav = () => {
                                 }
                             </ul>
                         </li>
-                        <li><Link>Blogs</Link></li>
+                        <li><Link to={'/blogs'}>Blogs</Link></li>
                         {
                             user &&
                             <li><Link to={'/dashboard'}>Dashboard</Link></li>
@@ -75,7 +75,7 @@ const Nav = () => {
                             }
                         </ul>
                     </li>
-                    <li><Link>Blogs</Link></li>
+                    <li><Link to={'/blogs'}>Blogs</Link></li>
                     {
                         user &&
                         <li><Link to={'/dashboard'}>Dashboard</Link></li>

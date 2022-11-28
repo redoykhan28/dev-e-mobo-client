@@ -6,7 +6,7 @@ const SellerModal = ({ setDeleteSeller, refetch, deleteSeller, message }) => {
     //handle delete seller
     const handleDelete = (seller) => {
 
-        fetch(`http://localhost:5000/deleteUser/${seller._id}`, {
+        fetch(`https://e-mobo-server.vercel.app/deleteUser/${seller._id}`, {
 
             method: "DELETE",
             headers: {

@@ -20,7 +20,7 @@ const Allseller = () => {
     const { data: allSeller = [], refetch } = useQuery({
 
         queryKey: ['all seller'],
-        queryFn: () => fetch('http://localhost:5000/allseller/?role=Seller', {
+        queryFn: () => fetch('https://e-mobo-server.vercel.app/allseller/?role=Seller', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -40,7 +40,7 @@ const Allseller = () => {
     //verify a seller
     const handleVerifySeller = (id) => {
 
-        fetch(`http://localhost:5000/seller/verify/${id}`, {
+        fetch(`https://e-mobo-server.vercel.app/seller/verify/${id}`, {
             method: "PUT",
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

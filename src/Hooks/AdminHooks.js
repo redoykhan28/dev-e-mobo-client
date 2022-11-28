@@ -7,7 +7,7 @@ const useAdmin = email => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/user/admin/${email}`)
+        fetch(`https://e-mobo-server.vercel.app/user/admin/${email}`)
             .then(res => res.json())
             .then(data => {
 

@@ -15,7 +15,7 @@ const MyProduct = () => {
     const { data: myProducts = [], refetch } = useQuery({
 
         queryKey: ['my products'],
-        queryFn: () => fetch(`http://localhost:5000/myproducts?email=${user?.email}`, {
+        queryFn: () => fetch(`https://e-mobo-server.vercel.app/myproducts?email=${user?.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -49,7 +49,7 @@ const MyProduct = () => {
         }
 
         console.log(ad._id)
-        fetch(`http://localhost:5000/adproduct`, {
+        fetch(`https://e-mobo-server.vercel.app/adproduct`, {
             method: "POST",
             headers: {
 

@@ -6,7 +6,7 @@ const AdminModal = ({ refetch, admin, setAdmin }) => {
     // update seller to admin 
     const handleAdmin = (admin) => {
 
-        fetch(`http://localhost:5000/admin/${admin._id}`, {
+        fetch(`https://e-mobo-server.vercel.app/admin/${admin._id}`, {
 
             method: "PUT",
             headers: {

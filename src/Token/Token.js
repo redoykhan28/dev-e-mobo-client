@@ -1,6 +1,6 @@
 export const getToken = (email) => {
 
-    fetch(`http://localhost:5000/jwt?email=${email}`)
+    fetch(`https://e-mobo-server.vercel.app/jwt?email=${email}`)
         .then(res => res.json())
         .then(data => {
 
