@@ -24,11 +24,11 @@ const Category = () => {
             <p>Checkout products Categories</p>
             <div className='mt-12 mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>
                 {
-                    categories?.map(category => <CategoryCard key={category.id} category={category}></CategoryCard>)
+                    categories?.map(category => <CategoryCard key={category?.id} category={category}></CategoryCard>)
                 }
 
             </div>
-            <Link to={'/categories'} className='btn btn-secondary'>See More</Link>
+            <Link to={'/categories'} className='btn btn-secondary text-white'>See More</Link>
         </div>
     );
 };

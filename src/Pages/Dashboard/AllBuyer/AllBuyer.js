@@ -26,7 +26,7 @@ const AllBuyer = () => {
 
     return (
 
-        <div>
+        <div data-aos="fade-up">
             <h4 className='text-center text-2xl font-bold my-4'>Buyers Data</h4>
             <div>
                 <div className="overflow-x-auto mt-8">

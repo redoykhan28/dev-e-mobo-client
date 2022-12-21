@@ -106,7 +106,7 @@ const AddProducts = () => {
     }
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <form onSubmit={handleSubmit(handleProduct)} className='bg-white w-9/12 mx-auto
              my-10 rounded-xl p-12 gap-10'>
                 <h3 className='text-center text-3xl font-bold mt-6 mb-10'>Add Products</h3>

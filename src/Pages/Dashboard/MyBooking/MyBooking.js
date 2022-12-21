@@ -36,7 +36,7 @@ const MyBooking = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div data-aos="fade-up" className='w-11/12 mx-auto'>
             <h4 className='text-center text-2xl font-bold my-4'>My Orders</h4>
             <div>
                 <div className="overflow-x-auto mt-8">

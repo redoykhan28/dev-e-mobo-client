@@ -12,16 +12,19 @@ const Home = () => {
                 <Banner></Banner>
             </section>
 
-            <section>
+            <section data-aos="fade-up">
                 <Info></Info>
             </section>
-            <section className="mt-32">
+
+            <section data-aos='zoom-in' className="mt-32">
                 <Category></Category>
             </section>
-            <section className='my-14'>
+
+            <section data-aos='zoom-in' className='my-20'>
                 <AdvertiseItem></AdvertiseItem>
             </section>
-            <section className='my-10'>
+
+            <section data-aos='fade-up' className='my-10'>
                 <Subscribe></Subscribe>
             </section>
 

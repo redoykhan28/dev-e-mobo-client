@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className='text-start'>
+        <div data-aos='fade-up' className='text-start'>
             <div className={' w-9/12 mx-auto'}>
                 <h4 className='my-4 text-3xl'>Blogs</h4>
 

@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../Assest/logo.PNG'
 import { authContext } from '../../../Context/AuthProvider';
+import './Nav.css'
 
 const Nav = () => {
 
@@ -61,24 +62,24 @@ const Nav = () => {
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
-                    <li><Link to={'/home'}>Home</Link></li>
+                <ul data-aos="zoom-out" className="menu menu-horizontal p-0">
+                    <li><NavLink to={'/home'} className={({ isActive }) => isActive ? 'clr bg-transparent fw-semibold' : ' fw-semibold'}>Home</NavLink></li>
                     <li tabIndex={0}>
-                        <Link className="justify-between">
+                        <NavLink className='justify-between bg-transparent'>
                             Categories
                             <FaAngleDown />
-                        </Link>
-                        <ul className="p-2 bg-accent shadow-2xl text-white">
+                        </NavLink>
+                        <ul className="p-2 bg-accent shadow-2xl z-30 text-white">
                             {
                                 categories?.map(category => <li><Link to={`/product/${category.name}`} key={category._id}>{category.name}</Link></li>
                                 )
                             }
                         </ul>
                     </li>
-                    <li><Link to={'/blogs'}>Blogs</Link></li>
+                    <li><NavLink to={'/blogs'} className={({ isActive }) => isActive ? 'clr fw-semibold bg-transparent' : ' fw-semibold'}>Blogs</NavLink></li>
                     {
                         user &&
-                        <li><Link to={'/dashboard'}>Dashboard</Link></li>
+                        <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'clr fw-semibold bg-transparent' : ' fw-semibold'}>Dashboard</NavLink></li>
                     }
                 </ul>
             </div>

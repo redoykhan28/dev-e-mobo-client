@@ -34,30 +34,14 @@ const MyProduct = () => {
 
     const handleAdvertise = (ad) => {
 
-        const currentAd = {
-
-            product: ad.product_name,
-            price: ad.selling_price,
-            seller: ad.seller_name,
-            product_id: ad._id,
-            phone: ad.phone,
-            location: ad.location,
-            image: ad.product_img,
-            paid: ad.paid,
-            category: ad.category
-
-        }
-
         console.log(ad._id)
-        fetch(`https://e-mobo-server.vercel.app/adproduct`, {
-            method: "POST",
+        fetch(`https://e-mobo-server.vercel.app/productsUpdate/${ad._id}`, {
+            method: "PUT",
             headers: {
 
-                "content-type": "application/json",
                 authorization: `bearer ${localStorage.getItem('token')}`
 
             },
-            body: JSON.stringify(currentAd)
         })
             .then(res => res.json())
             .then(data => {
@@ -70,7 +54,7 @@ const MyProduct = () => {
 
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <h4 className='text-center text-2xl font-bold my-4'>My Uploaded Products</h4>
             <div>
                 <div className="overflow-x-auto mt-8">

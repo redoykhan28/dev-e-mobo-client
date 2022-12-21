@@ -88,11 +88,11 @@ const SignUp = () => {
 
             <div className="hero lg:min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:w-5/12 lg:text-left">
+                    <div data-aos='fade-up' className="text-center lg:w-5/12 lg:text-left">
                         <h1 className="text-5xl text-end text-primary lg:text-black mt-16 lg:mt-0 font-bold">SignUp now!</h1>
                         <p className='text-md text-end mt-4 text-primary lg:text-black font-bold'>Already have an account? <Link to={'/login'} className='text-secondary underline decoration-1'>Login</Link></p>
                     </div>
-                    <div className="card lg:card-side w-full lg:w-8/12 bg-base-100 shadow-2xl">
+                    <div data-aos='zoom-in' className="card lg:card-side w-full lg:w-8/12 bg-base-100 shadow-2xl">
 
                         <figure>
                             <img src={sidepic} className="w-full hidden lg:block h-full" alt="Album" />

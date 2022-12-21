@@ -11,27 +11,29 @@ const AdCard = ({ ad }) => {
     //use buyer hook
     const [isBuyer] = useBuyer(user?.email)
 
-
-    const { product, phone, location, seller, image, price, category } = ad
+    console.log(ad)
+    const { product_name, phone, location, seller_name, product_img
+        , selling_price, category } = ad
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-            <figure><img src={image} alt="img" /></figure>
+        <div className="card card-compact w-80 bg-base-100 shadow-xl">
+            <figure><img src={product_img
+            } alt="img" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{product}</h2>
+                <h2 className="card-title">{product_name}</h2>
                 <div className='flex justify-between items-center'>
-                    <h5>Price: <span className='font-bold'>{price}</span>TK</h5>
+                    <h5>Price: <span className='font-bold'>{selling_price}</span>TK</h5>
                     <h5>Phone: {phone}</h5>
                 </div>
                 <h5 className='text-left'>Location: {location}</h5>
-                <h5 className='text-left'>Seller: {seller}</h5>
+                <h5 className='text-left'>Seller: {seller_name}</h5>
                 <div className="card-actions justify-end">
                     {
                         isBuyer ?
-                            <Link to={`/product/${category}`} className='btn bg-primary text-white hover:bg-accent'>Explore</Link>
+                            <Link to={`/product/${category}`} className='btn bg-secondary text-white hover:bg-accent'>Explore</Link>
                             :
 
                             <div>
-                                <p>You are not a buyer!For login asa a buyer <Link className='text-primary underline decoration-1' to={'/login'}>click here</Link></p>
+                                <p>You are not a buyer! For login as a a buyer <Link className='text-primary underline decoration-1' to={'/login'}>click here</Link></p>
                             </div>
                     }
                 </div>
